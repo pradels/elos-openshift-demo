@@ -12,7 +12,7 @@
 
 <table border="1">
 <tr>
-  <td>Hostname</td>
+  <td>OpenShift pod</td>
   <td><?php echo gethostname(); ?></td>
 </tr>
 <tr>
