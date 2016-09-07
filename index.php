@@ -70,7 +70,7 @@ count INT(6))";
       die("Error: " . $sql . "<br>" . mysqli_error($db));
     }
 
-    $sql = "INSERT INTO Counter (count) VALUES (1, 0)";
+    $sql = "INSERT INTO Counter (id, count) VALUES (1, 0)";
     $result = mysqli_query($db, $sql);
     if (!$result) {
       die("Error: " . $sql . "<br>" . mysqli_error($db));
