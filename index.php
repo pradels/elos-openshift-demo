@@ -18,7 +18,7 @@
 <body>
 <h1><?php echo "$message" ?></h1>
 
-<table>
+<table class="table table-striped table-hover">
 <tr>
   <td>Front-end POD name</td>
   <td><?php echo gethostname(); ?></td>
@@ -56,6 +56,11 @@
 <br/>
 
 <b>
+
+
+<div class="bg-inverse text-white">
+<pre><code>
+
 <?php
   $db = mysqli_connect("$db_host:$db_port", $db_username, $db_password);
 
@@ -100,16 +105,23 @@ count INT(6))";
   if ($result) {
     echo "Incrementing counter";
   }
-  
+?>
+
+</code></pre>
+</div>
+
+<?  
   // Display counter value
   $sql = "SELECT * FROM Counter";
   $result = mysqli_query($db, $sql);
   if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
-      echo "<h2>Pocitadlo: " . $row['count'] . "</h2>";
+      echo "<h2>Counter (from DB): " . $row['count'] . "</h2>";
     }
   }
- 
+?>
+
+<?
   mysqli_close($db);
 ?>
 </b>
