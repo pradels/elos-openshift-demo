@@ -109,6 +109,13 @@
             "type": "ConfigChange"
           },
           {
+            "type": "Generic",
+            "generic": {
+              "secret": "${GENERIC_WEBHOOK_SECRET}",
+              "allowEnv": true
+            }
+          },
+          {
             "type": "GitHub",
             "github": {
               "secret": "${GITHUB_WEBHOOK_SECRET}"
@@ -375,6 +382,13 @@
       "name": "GITHUB_WEBHOOK_SECRET",
       "displayName": "GitHub Webhook Secret",
       "description": "A secret string used to configure the GitHub webhook.",
+      "generate": "expression",
+      "from": "[a-zA-Z0-9]{40}"
+    },
+    {
+      "name": "GENERIC_WEBHOOK_SECRET",
+      "displayName": "Generic Webhook Secret",
+      "description": "A secret string used to configure webhook.",
       "generate": "expression",
       "from": "[a-zA-Z0-9]{40}"
     },
