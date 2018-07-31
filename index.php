@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<h1><?php echo "$message" ?></h1>
+<h1><?php echo "$message" ?> from OpenShift Demo App</h1>
 
 <table class="table table-striped table-hover">
 <tr>
@@ -58,8 +58,8 @@
 <b>
 
 
-<div class="bg-inverse text-white">
 <pre><code>
+<div class="bg-inverse text-white">
 
 <?php
   $db = mysqli_connect("$db_host:$db_port", $db_username, $db_password);
@@ -107,10 +107,10 @@ count INT(6))";
   }
 ?>
 
-</code></pre>
 </div>
+</code></pre>
 
-<?  
+<?php
   // Display counter value
   $sql = "SELECT * FROM Counter";
   $result = mysqli_query($db, $sql);
@@ -121,7 +121,7 @@ count INT(6))";
   }
 ?>
 
-<?
+<?php
   mysqli_close($db);
 ?>
 </b>
