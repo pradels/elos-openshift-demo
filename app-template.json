@@ -420,7 +420,7 @@
       "name": "HELLO_MESSAGE",
       "displayName": "Hello Message",
       "description": "Hello Message.",
-      "value": "Ahoj!"
+      "value": "Hello World!"
     },
     {
       "name": "COMPOSER_MIRROR",

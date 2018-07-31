@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<h1><?php echo "$message" ?> from OpenShift Demo App</h1>
+<h1>OpenShift Demo App (<?php echo "$message" ?>)</h1>
 
 <table class="table table-striped table-hover">
 <tr>
@@ -58,7 +58,6 @@
 <b>
 
 
-<pre><code>
 <div class="bg-inverse text-white">
 
 <?php
@@ -108,7 +107,6 @@ count INT(6))";
 ?>
 
 </div>
-</code></pre>
 
 <?php
   // Display counter value
