@@ -18,7 +18,7 @@
 <body>
 <h1><?php echo "$message" ?></h1>
 
-<table class="table-style-two">
+<table>
 <tr>
   <td>Front-end POD name</td>
   <td><?php echo gethostname(); ?></td>
@@ -27,11 +27,6 @@
   <td>Front-end POD IP address</td>
   <td><?php echo $_SERVER['SERVER_ADDR']; ?></td>
 </tr>
-</table>
-
-<br/>
-
-<table class="table-style-two">
 <tr>
   <td>DB service</td>
   <td><?php echo "$db_service"; ?></td>
