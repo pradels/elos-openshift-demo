@@ -370,7 +370,7 @@
       "name": "GIT_SECRET",
       "displayName": "Git Secret",
       "description": "OpenShift Git Secret Name",
-      "value": "gitlab"
+      "value": "ls-elos-gitlab"
     },
     {
       "name": "APPLICATION_DOMAIN",
