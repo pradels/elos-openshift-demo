@@ -369,7 +369,7 @@
       "name": "APPLICATION_DOMAIN",
       "displayName": "Application Hostname",
       "description": "The exposed hostname that will route to PHP app service, if left blank a value will be defaulted.",
-      "value": "php-app.oseapps.elostech.cz"
+      "value": "php-app.ocp.elostech.cz"
     },
     {
       "name": "GITHUB_WEBHOOK_SECRET",
