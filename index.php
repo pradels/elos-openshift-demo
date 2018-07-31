@@ -8,6 +8,9 @@
   $message     = getenv('HELLO_MESSAGE');
 ?>
 
+<html>
+
+<head>
 <style type="text/css">
 	table.table-style-two {
 		font-family: verdana, arial, sans-serif;
@@ -38,7 +41,7 @@
 		background-color: #ffffff;
 	}
 </style>
-
+</head>
 
 <h1><?php echo "$message" ?></h1>
 
@@ -143,3 +146,4 @@ count INT(6))";
 ?>
 </b>
 
+</html>
