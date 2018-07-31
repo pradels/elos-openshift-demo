@@ -7,45 +7,18 @@
   $db_port     = getenv(strtoupper($db_service)."_SERVICE_PORT");
   $message     = getenv('HELLO_MESSAGE');
 ?>
-
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<style type="text/css">
-	table.table-style-two {
-		font-family: verdana, arial, sans-serif;
-		font-size: 11px;
-		color: #333333;
-		border-width: 1px;
-		border-color: #3A3A3A;
-		border-collapse: collapse;
-	}
- 
-	table.table-style-two th {
-		border-width: 1px;
-		padding: 8px;
-		border-style: solid;
-		border-color: #517994;
-		background-color: #B2CFD8;
-	}
- 
-	table.table-style-two tr:hover td {
-		background-color: #DFEBF1;
-	}
- 
-	table.table-style-two td {
-		border-width: 1px;
-		padding: 8px;
-		border-style: solid;
-		border-color: #517994;
-		background-color: #ffffff;
-	}
-</style>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <title><?php echo "$message" ?></title>
 </head>
 
+<body>
 <h1><?php echo "$message" ?></h1>
 
-<table border="1">
+<table class="table-style-two">
 <tr>
   <td>Front-end POD name</td>
   <td><?php echo gethostname(); ?></td>
@@ -58,7 +31,7 @@
 
 <br/>
 
-<table border="1">
+<table class="table-style-two">
 <tr>
   <td>DB service</td>
   <td><?php echo "$db_service"; ?></td>
@@ -145,5 +118,5 @@ count INT(6))";
   mysqli_close($db);
 ?>
 </b>
-
+</body>
 </html>
