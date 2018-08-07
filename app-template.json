@@ -75,8 +75,10 @@
             "uri": "${SOURCE_REPOSITORY_URL}",
             "ref": "${SOURCE_REPOSITORY_REF}"
           },
-	  "sourceSecret": {
-            "name": "${GIT_SECRET}"
+	  "secrets": {
+            "secret": {
+              "name": "${GIT_SECRET}"
+            }
 	  }
         },
         "strategy": {
