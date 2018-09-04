@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<h1>OpenShift Demo App (<?php echo "$message" ?>)</h1>
+<h1>ELOS OpenShift Demo App (<?php echo "$message" ?>)</h1>
 
 <table class="table table-striped table-hover">
 <tr>
@@ -58,7 +58,7 @@
 <b>
 
 
-<div class="bg-inverse text-white">
+<div class="bg-dark text-white">
 
 <?php
   $db = mysqli_connect("$db_host:$db_port", $db_username, $db_password);
