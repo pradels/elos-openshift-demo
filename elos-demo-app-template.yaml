@@ -27,7 +27,7 @@ objects:
   metadata:
     name: ${NAME}
   spec:
-    host: ${APPLICATION_DOMAIN}
+    host: "${NAME}.${APPLICATION_DOMAIN}"
     to:
       kind: Service
       name: ${NAME}
@@ -197,11 +197,10 @@ parameters:
     are not using the default branch.
   displayName: Git Reference
   name: SOURCE_REPOSITORY_REF
-- description: The exposed hostname that will route to PHP app service, if left blank
-    a value will be defaulted.
-  displayName: Application Hostname
+- description: The exposed hostname domain that will route to PHP app service, if left blank a value will be defaulted.
+  displayName: Application Domain
   name: APPLICATION_DOMAIN
-  value: elos-demo-app.apps.ocp.com
+  value: apps.ocp.com
 - displayName: Database Service Name
   name: DATABASE_SERVICE_NAME
   required: true
