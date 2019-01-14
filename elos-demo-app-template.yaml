@@ -52,8 +52,6 @@ objects:
       git:
         ref: ${SOURCE_REPOSITORY_REF}
         uri: ${SOURCE_REPOSITORY_URL}
-      sourceSecret:
-        name: ${GIT_SECRET}
       type: Git
     strategy:
       sourceStrategy:
@@ -65,13 +63,6 @@ objects:
     triggers:
     - type: ImageChange
     - type: ConfigChange
-    - generic:
-        allowEnv: true
-        secret: ${GENERIC_WEBHOOK_SECRET}
-      type: Generic
-    - github:
-        secret: ${GITHUB_WEBHOOK_SECRET}
-      type: GitHub
 - apiVersion: v1
   kind: DeploymentConfig
   metadata:
@@ -106,9 +97,6 @@ objects:
           name: elos-demo-app
           ports:
           - containerPort: 8080
-          resources:
-            limits:
-              memory: ${MEMORY_LIMIT}
     triggers:
     - imageChangeParams:
         automatic: true
@@ -177,9 +165,6 @@ objects:
                 -D ${DATABASE_NAME} -e 'SELECT 1'
             initialDelaySeconds: 5
             timeoutSeconds: 1
-          resources:
-            limits:
-              memory: ${MEMORY_MYSQL_LIMIT}
     triggers:
     - imageChangeParams:
         automatic: true
@@ -203,44 +188,20 @@ parameters:
   name: NAMESPACE
   required: true
   value: openshift
-- description: Maximum amount of memory the PHP container can use.
-  displayName: Memory Limit
-  name: MEMORY_LIMIT
-  required: true
-  value: 512Mi
-- description: Maximum amount of memory the MySQL container can use.
-  displayName: Memory Limit (MySQL)
-  name: MEMORY_MYSQL_LIMIT
-  required: true
-  value: 512Mi
 - description: The URL of the repository with your application source code.
   displayName: Git Repository URL
   name: SOURCE_REPOSITORY_URL
   required: true
-  value: git@git.elostech.cz:OpenShift/elos-demo-app.git
+  value: https://github.com/pradels/elos-openshift-demo.git
 - description: Set this to a branch name, tag or other ref of your repository if you
     are not using the default branch.
   displayName: Git Reference
   name: SOURCE_REPOSITORY_REF
-- description: OpenShift Git Secret Name
-  displayName: Git Secret
-  name: GIT_SECRET
-  value: ls-elos-gitlab
 - description: The exposed hostname that will route to PHP app service, if left blank
     a value will be defaulted.
   displayName: Application Hostname
   name: APPLICATION_DOMAIN
-  value: elos-demo-app.ocp.elostech.cz
-- description: A secret string used to configure the GitHub webhook.
-  displayName: GitHub Webhook Secret
-  from: '[a-zA-Z0-9]{40}'
-  generate: expression
-  name: GITHUB_WEBHOOK_SECRET
-- description: A secret string used to configure webhook.
-  displayName: Generic Webhook Secret
-  from: '[a-zA-Z0-9]{40}'
-  generate: expression
-  name: GENERIC_WEBHOOK_SECRET
+  value: elos-demo-app.apps.ocp.com
 - displayName: Database Service Name
   name: DATABASE_SERVICE_NAME
   required: true
