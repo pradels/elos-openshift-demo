@@ -19,6 +19,8 @@
 <body>
 <h1>ELOS OpenShift Demo App (<?php echo "$message" ?>)</h1>
 
+<br />
+
 <table class="table table-striped table-hover">
 <tr>
   <td>Front-end POD name</td>
