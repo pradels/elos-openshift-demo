@@ -70,7 +70,7 @@ objects:
       description: Defines how to deploy the application server
     name: ${NAME}
   spec:
-    replicas: 1
+    replicas: 2
     selector:
       name: ${NAME}
     strategy:

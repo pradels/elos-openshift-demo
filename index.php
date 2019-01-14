@@ -12,6 +12,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/code.css">
   <title><?php echo "$message" ?></title>
 </head>
 
@@ -56,42 +57,41 @@
 <br/>
 
 
-<div class="bg-dark text-white">
 <pre><code>
 
 <?php
   $db = mysqli_connect("$db_host:$db_port", $db_username, $db_password);
 
   if (!$db) {
-    die("Connection failed: " . mysqli_connect_error());
+    die("<span>Connection failed: " . mysqli_connect_error() . "</span>");
   }
-  echo "Connected to MySQL host $db_host:$db_port";
+  echo "<span>Connected to MySQL host $db_host:$db_port</span>";
 
   if (!mysqli_select_db($db , $db_name)) {
-    die("Database $db_name not accessible!");
+    die("<span>Database $db_name not accessible!</span>");
   }
-  echo "Database '$db_name' selected";
+  echo "<span>Database '$db_name' selected</span>";
 
   // Create tables if not there.
   $val = mysqli_query($db, 'select 1 from `Counter` LIMIT 1');
   if($val === FALSE) {
-    echo "Creating table Counter";
+    echo "<span>Creating table Counter</span>";
 
     $sql = "CREATE TABLE Counter (
 id INT(6) UNSIGNED PRIMARY KEY,
 count INT(6))";
     $result = mysqli_query($db, $sql);
     if (!$result) {
-      die("Error: " . $sql . " " . mysqli_error($db));
+      die("<span>Error: " . $sql . " " . mysqli_error($db) . "</span>");
     }
 
     $sql = "INSERT INTO Counter (id, count) VALUES (1, 0)";
     $result = mysqli_query($db, $sql);
     if (!$result) {
-      die("Error: " . $sql . " " . mysqli_error($db));
+      die("<span>Error: " . $sql . " " . mysqli_error($db) . "/<span>");
     }
   } else {
-    echo "Table Counter exists";
+    echo "<span>Table Counter exists</span>";
   } 
 
   // Increment counter value
@@ -101,7 +101,7 @@ count INT(6))";
     WHERE id = 1";
   $result = mysqli_query($db, $sql);
   if ($result) {
-    echo "Incrementing counter";
+    echo "<span>Incrementing counter</span>";
   }
 
   // Display counter value
@@ -109,13 +109,12 @@ count INT(6))";
   $result = mysqli_query($db, $sql);
   if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
-      echo "Counter = " . $row['count'];
+      echo "<span>Counter = " . $row['count'] . "</span>";
     }
   }
 ?>
 
 </code></pre>
-</div>
 
 <?php
   mysqli_close($db);
