@@ -38,32 +38,6 @@ objects:
       description: Keeps track of changes in the application image
     name: ${NAME}
 - apiVersion: v1
-  kind: BuildConfig
-  metadata:
-    annotations:
-      description: Defines how to build the application
-    name: ${NAME}
-  spec:
-    output:
-      to:
-        kind: ImageStreamTag
-        name: ${NAME}:latest
-    source:
-      git:
-        ref: ${SOURCE_REPOSITORY_REF}
-        uri: ${SOURCE_REPOSITORY_URL}
-      type: Git
-    strategy:
-      sourceStrategy:
-        from:
-          kind: ImageStreamTag
-          name: php:5.6
-          namespace: ${NAMESPACE}
-      type: Source
-    triggers:
-    - type: ImageChange
-    - type: ConfigChange
-- apiVersion: v1
   kind: DeploymentConfig
   metadata:
     annotations:
@@ -93,19 +67,11 @@ objects:
             value: ${DATABASE_PASSWORD}
           - name: HELLO_MESSAGE
             value: ${HELLO_MESSAGE}
-          image: ' '
+          image: "openshiftregistrysa.azurecr.io/elos-demo/php"
           name: elos-demo-app
           ports:
           - containerPort: 8080
     triggers:
-    - imageChangeParams:
-        automatic: true
-        containerNames:
-        - elos-demo-app
-        from:
-          kind: ImageStreamTag
-          name: ${NAME}:latest
-      type: ImageChange
     - type: ConfigChange
 - apiVersion: v1
   kind: Service
